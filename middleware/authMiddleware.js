@@ -3,7 +3,7 @@ import { createRequire } from 'module';
 import User from '../models/userModel.js';
 
 const require = createRequire(import.meta.url);
-const serviceAccount = require('../config/serviceAccountKey.json');
+const serviceAccount = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
 
 if (!admin.apps.length) {
   admin.initializeApp({
